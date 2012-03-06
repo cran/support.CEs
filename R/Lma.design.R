@@ -81,7 +81,14 @@ function(candidate.array = NULL,
         ALTS[i] <- list(data.frame(alt[[i]]))
     }
     names(ALTS) <- paste("alt.", 1:nalternatives, sep = "")
-
-    return(c(ALTS, list(candidate = OA)))
+    desinf <- list(nalternatives = nalternatives,
+                   nblocks = nblocks,
+                   nquestions = nquestions_nblocks,
+                   nattributes = nattributes
+                   )
+    my.choice.experiment.design <- list(alternatives = ALTS,
+                                        candidate = OA,
+                                        design.information = desinf)
+    return(my.choice.experiment.design)
 }
 

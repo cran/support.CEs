@@ -9,7 +9,7 @@ A data set artificially created for the "Examples" in this package.
 }
 \usage{data(syn.res2)}
 \format{
-  A data frame with 20 respondents on the following 11 variables.
+  A data frame with 100 respondents on the following 11 variables.
   \describe{
     \item{\code{ID}}{Identification number of respondents}
     \item{\code{BLOCK}}{Serial number of blocks to which each respondent had been assigned}
@@ -27,7 +27,7 @@ A data set artificially created for the "Examples" in this package.
 \details{
 The "Examples" for each function in this package is based on two hypothetical cases in which choice experiments are applied to measure consumers' valuation of an agricultural product. 
 
-The data set \code{syn.res2} is based on a case in which a labeled choice experiment design created by the \emph{L^MA} method is used in a questionnaire survey. A total of 20 respondents were assumedly requested to select their most preferred from among three agricultural products and the option "none of these."
+The data set \code{syn.res2} is based on a case in which a labeled choice experiment design created by the \emph{L^MA} method is used in a questionnaire survey. A total of 100 respondents were assumed to have been requested to select their most preferred from among three agricultural products and the option "none of these."
 
 \tabular{c}{ \cr}
 
@@ -51,7 +51,7 @@ Price \tab $1.1 \tab $1 \tab $1.1 \cr
 
 Although the agricultural products have three attributes such as the region of origin, the eco-friendly label and the price (see "Details" for the data set \code{syn.res1}), the region of origin attribute was treated as an alternative specific attribute: the first, second, and third alternatives in a choice set always read as "Region A," "Region B," and "Region C," respectively. 
 
-A total of 18 choice experiment questions were created by the function \code{Lma.design} and divided into two blocks (see "Examples" for the function \code{Lma.design}): this means that two types of questionnaire were created, each of which was randomly assigned to the respondents. Therefore, the sample size of the analysis based on their responses was 180 (= 9 CE questions per respondent * 20 respondents).
+A total of 18 choice experiment questions were created by the function \code{Lma.design} and divided into two blocks (see "Examples" for the function \code{Lma.design}): this means that two types of questionnaire were created, each of which was randomly assigned to the respondents. Therefore, the sample size of the analysis based on their responses was 900 (= 9 CE questions per respondent * 100 respondents).
 }
 \author{
 Hideo Aizaki

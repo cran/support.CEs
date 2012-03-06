@@ -1,13 +1,16 @@
 make.design.matrix <-
 function(choice.experiment.design,
-         nblocks,
-         nquestions,
-         nalternatives,
          optout = TRUE,
          categorical.attributes = NULL,
          continuous.attributes = NULL,
          unlabeled = TRUE) 
 {
+# Assign design information
+    nblocks <- choice.experiment.design$design.information$nblocks
+    nquestions <- choice.experiment.design$design.information$nquestions
+    nalternatives <- choice.experiment.design$design.information$nalternatives
+    nattributes <- choice.experiment.design$design.information$nattributes
+
 # Initial setting
     variable.names <- NULL
     conv.choice.experiment.design <- vector("list", nalternatives)
@@ -17,21 +20,21 @@ function(choice.experiment.design,
     # Categorical attribute variables
         if (is.null(categorical.attributes) == FALSE) {
             for (j in 1:length(categorical.attributes)) {
-                k <- which(names(choice.experiment.design[[i]]) == categorical.attributes[j])
-                m <- nlevels(choice.experiment.design[[i]][, k])
+                k <- which(names(choice.experiment.design[[1]][[i]]) == categorical.attributes[j])
+                m <- nlevels(choice.experiment.design[[1]][[i]][, k])
                 variable.names <- c(variable.names, 
-                                    levels(choice.experiment.design[[i]][, k])[2:m])
+                                    levels(choice.experiment.design[[1]][[i]][, k])[2:m])
                 conv.choice.experiment.design[[i]] <- cbind(conv.choice.experiment.design[[i]],
-                                 model.matrix(~ choice.experiment.design[[i]][, k] - 1)[, 2:m])
+                                 model.matrix(~ choice.experiment.design[[1]][[i]][, k] - 1)[, 2:m])
             }
         }
     # Continuous attribute variables
         if (is.null(continuous.attributes) == FALSE) {
             for (j in 1:length(continuous.attributes)) {
-                k <- which(names(choice.experiment.design[[i]]) == continuous.attributes[j]) 
-                variable.names <- c(variable.names, names(choice.experiment.design[[i]])[k])
+                k <- which(names(choice.experiment.design[[1]][[i]]) == continuous.attributes[j]) 
+                variable.names <- c(variable.names, names(choice.experiment.design[[1]][[i]])[k])
                 conv.choice.experiment.design[[i]] <- cbind(conv.choice.experiment.design[[i]],
-                                  as.numeric(as.character(choice.experiment.design[[i]][, k])))
+                                  as.numeric(as.character(choice.experiment.design[[1]][[i]][, k])))
             }
         }
     }
@@ -54,9 +57,9 @@ function(choice.experiment.design,
     }
 
 # Create BLOCK, QES, and ALT variables
-    BQS <- choice.experiment.design[[1]][, 1:3]
+    BQS <- choice.experiment.design[[1]][[1]][, 1:3]
     for (i in 2:nalternatives) {
-        BQS <- rbind(BQS, choice.experiment.design[[i]][, 1:3])
+        BQS <- rbind(BQS, choice.experiment.design[[1]][[i]][, 1:3])
     }
 
 # ASC for unlabeled design

@@ -29,11 +29,13 @@ Conditional logit model analyses of responses to choice experiment questions in 
 
 The respondent data set has to be created by the user and is assigned to the argument \code{respondent.dataset}. The data set, in which each row shows one respondent, has to contain a variable \code{ID}, corresponding to the respondent's identification number; a variable \code{BLOCK}, corresponding to the serial number of blocks to which each respondent had been assigned; and response variables, corresponding to the answers to each of the choice experiment questions. If necessary, covariates showing the respondent's individual characteristics such as age and gender are also included in the \code{respondent.dataset}. Although the names of the response variables and covariates are discretionary, the names of the respondent's identification number variable and block variable must be \code{ID} and \code{BLOCK}, respectively. 
 
-The names of the response variables are assigned to the argument \code{choice.indicators}. For example, when the names of the response variables in the respondent data set are q1, q2, q3, and q4, the argument is set as \code{c("q1", "q2", "q3", "q4")}. The response variables show the serial number of the alternative selected by the respondent for each choice experiment question. The method of assigning the serial number of the alternatives must be the same as that of assigning the \code{ALT} in the output from the \code{make.design.matrix}. In other words, each alternative must be assigned an integer value that starts from 1. 
+The names of the response variables are assigned to the argument \code{choice.indicators}. For example, when the names of the response variables in the respondent data set are q1, q2, q3, and q4, the argument is set as \code{c("q1", "q2", "q3", "q4")}. The response variables show the serial number of the alternative selected by the respondent for each choice experiment question. The method of assigning the serial number of the alternatives must be the same as that of assigning the \code{ALT} in the output from the \code{make.design.matrix}. In other words, each alternative must be assigned an integer value that starts from 1. In the \code{respondent.dataset}, all variables are automatically treated as covariates, except for the variable \code{ID}, the variable \code{BLOCK}, and the response variables assigned by the argument \code{choice.indicators}. 
 
-In the \code{respondent.dataset}, all variables are automatically treated as covariates, except for the variable \code{ID}, the variable \code{BLOCK}, and the response variables assigned by the argument \code{choice.indicators}. 
+The design matrix data set created by the function \code{make.design.matrix} is assigned to the argument \code{design.matrix}.
 
-The structure of the design matrix data set (\code{design.matrix}), in which each row shows one alternative, is the same as that of the output from the function \code{make.design.matrix} (see "Details" for the \code{make.design.matrix}). The design matrix data set must include the variables \code{BLOCK}, \code{QES}, and \code{ALT}, whose definitions are the same as those in the \code{make.design.matrix}. The names of other variables (such as categorical and/or continuous independent variables) in the design matrix data set are discretionary.
+It should be noted that the order of the questions in the \code{respondent.dataset} must be the same as that of the variable \code{QES} in the design matrix data set that was assigned to the argument \code{design.matrix}, if the order of CE questions presented to respondents was randomized.
+
+
 }
 \value{
 The data set that is suitable for the function \code{clogit} is returned. In addition to some variables contained in the respondent and design matrix data sets, this data set also contains the following two variables that are used in the function \code{clogit}:
@@ -59,7 +61,7 @@ des1 <- rotation.design(attribute.names = list(
  nalternatives = 2, nblocks = 1, row.renames = FALSE, 
  randomize = TRUE, seed = 987)
 desmat1 <- make.design.matrix(choice.experiment.design = des1, 
- nblocks = 1, nquestions = 9, nalternatives = 2, optout = TRUE, 
+ optout = TRUE, 
  categorical.attributes = c("Region", "Eco"), 
  continuous.attributes = c("Price"), unlabeled = TRUE)
 data(syn.res1)
@@ -83,7 +85,7 @@ des2 <- Lma.design(attribute.names = list(
  Price = c("1", "1.1", "1.2")), 
  nalternatives = 3, nblocks = 2, row.renames = FALSE, seed = 987)
 desmat2 <- make.design.matrix(choice.experiment.design = des2, 
- nblocks = 2, nquestions = 9, nalternatives = 3, optout = TRUE, 
+ optout = TRUE, 
  categorical.attributes = c("Eco"), 
  continuous.attributes = c("Price"), 
  unlabeled = FALSE)

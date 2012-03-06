@@ -1,0 +1,17 @@
+export(
+"gofm",
+"Lma.design",
+"make.dataset",
+"make.design.matrix",
+"mwtp",
+"questionnaire",
+"rotation.design"
+)
+
+import(
+DoE.base,
+MASS,
+simex,
+survival
+)
+

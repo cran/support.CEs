@@ -1,14 +1,16 @@
 questionnaire <-
-function(choice.experiment.design, 
-         nblocks,
-         nquestions,
-         nalternatives,
-         nattributes)
+function(choice.experiment.design)
 {
+# Assign design information
+    nblocks <- choice.experiment.design$design.information$nblocks
+    nquestions <- choice.experiment.design$design.information$nquestions
+    nalternatives <- choice.experiment.design$design.information$nalternatives
+    nattributes <- choice.experiment.design$design.information$nattributes
+
 # Integrate alternatives into data.frame
-    my.design <- as.matrix(choice.experiment.design[[1]])
+    my.design <- as.matrix(choice.experiment.design[[1]][[1]])
     for (i in 2:nalternatives) {
-        my.design <- rbind(my.design, as.matrix(choice.experiment.design[[i]]))
+        my.design <- rbind(my.design, as.matrix(choice.experiment.design[[1]][[i]]))
     }
     rownames(my.design) <- NULL 
     my.design <- data.frame(my.design)

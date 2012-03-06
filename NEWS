@@ -1,0 +1,14 @@
+Changes to package support.CEs
+
+2012-03-06, version 0.2-1
+- Modified the output from the functions Lma.design or rotation.design.
+    A component design.information is added to the output.
+- Modified the arguments in the functions questionnaire and make.design.matrix.
+    Arguments nblocks, nquestions, nalternatives, and nattributes are
+    automatically set on the basis of design.information included 
+    in the output from the design functions.
+- Modified syn.res1 and syn.res2.
+
+2011-07-14, version 0.2.0
+- First release to CRAN
+
