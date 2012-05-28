@@ -4,7 +4,6 @@ function(output,
          nonmonetary.variables = NULL,
          nreplications = 10000,
          percentile.points = c(0.5, 2.5, 5, 95, 97.5, 99.5),
-         decimal.places = 3,
          seed = NULL) 
 {
 # Initial setting
@@ -67,8 +66,10 @@ function(output,
                                   quantile, probs = (percentile.points / 100))
 
 # Format output
-    table <- rbind(MWTP=mwtps, confidence.intervals)
-
-    return(round(t(table), digits = decimal.places))
+    output <- list(mwtp.table = t(rbind(MWTP=mwtps, confidence.intervals)),
+                   mwtps = repmwtps)
+    class(output) <- "mwtp"
+  
+    return(output)
 }
 

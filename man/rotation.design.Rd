@@ -54,7 +54,7 @@ Similar to the function \code{Lma.design}, this function can divide a choice exp
 Under default settings, this function uses an orthogonal main-effect array that is automatically produced by the function \code{oa.design} based on the argument \code{attribute.names} to create a choice experiment design. However, when there is no array corresponding to the argument \code{attribute.names}, the function \code{oa.design} returns a full factorial based on the argument \code{attribute.names} (See help for the function \code{oa.design} in the packge \pkg{DoE.base}). On the other hand, when this function does not create a choice experiment design matching the user's requirements, the user might achieve it by assigning an arbitrary (user-defined) array to the argument \code{candidate.array}: this function uses the array to create a choice experiment design. When the user-defined array is used, the last column of the array must contain a column for dividing the design based on the argument \code{nblocks}. The arguments \code{attribute.names} and \code{nblocks} must also be assigned according to the array.
 }
 \value{
-This function provides a list with the following components.
+This function returns an object of S3 class "cedes" (see Lma.design) that is a list with the following components.
   \item{alternatives }{A list of objects, \code{alt.j}: the \emph{j}th alternative in each choice set created by this function. Each of \code{alt.j} includes a variable \code{BLOCK} describing the serial number of blocks, a variable \code{QES} describing the serial number of choice experiment questions for each value of the variable \code{BLOCK}, a variable \code{ALT} describing the serial number of alternatives for each value of the \code{QES} variable, and attribute variables corresponding to the argument \code{attribute.names}.}
   \item{candidate }{A candidate array used for creating a choice experiment design, which is generated using the \code{oa.design} function in the \pkg{DoE.base} package or which the user sets for the argument \code{candidate.array}. When \code{nblocks} >= 2, the last column in this value (\code{candidate}) shows a factor that is used for blocking.}
   \item{design.information }{Information related to the CE design created by this function, which is used as arguments in post-processing functions, such as the functions \code{questionnaire} and \code{make.design.matrix}. This list includes objects such as the number of blocks into which the CE design is divided (\code{nblocks}), the number of questions per block (\code{nquestions}), the number of alternatives per choice set excluding an opt-out alternative (\code{nalternatives}), and the number of attributes per alternative (\code{nalternatives}).}
@@ -71,11 +71,12 @@ Hideo Aizaki
 }
 \examples{
 # See "Details" for the data set syn.res1.
-rotation.design(attribute.names = list(
+des1 <- rotation.design(attribute.names = list(
  Region = c("Reg_A", "Reg_B", "Reg_C"), 
  Eco = c("Conv.", "More", "Most"), 
  Price = c("1", "1.1", "1.2")), 
  nalternatives = 2, nblocks = 1, row.renames = FALSE, 
  randomize = TRUE, seed = 987)
+des1
 }
 \keyword{design}

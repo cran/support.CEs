@@ -1,5 +1,6 @@
 \name{mwtp}
 \alias{mwtp}
+\alias{print.mwtp}
 \title{
 Calculating the marginal willingness to pay
 }
@@ -10,7 +11,10 @@ This function calculates the marginal willingness to pay for the attributes and/
 mwtp(output, monetary.variables, nonmonetary.variables = NULL,
      nreplications = 10000,
      percentile.points = c(0.5, 2.5, 5, 95, 97.5, 99.5), 
-     decimal.places = 3, seed = NULL)
+     seed = NULL)
+
+\method{print}{mwtp}(x, digits = max(3, getOption("digits") - 3),
+      scientific = FALSE, ...)
 }
 \arguments{
   \item{output}{
@@ -28,11 +32,20 @@ An integer value denoting the number of replications in the simulation method. T
   \item{percentile.points}{
 A vector of values showing the percentile points of an empirical distribution of each MWTP. Its default vector is set as \code{c(0.5, 2.5, 5, 95, 97.5, 99.5)}, which indicates the lower and upper bounds of the 99, 95, and 90 percent confidence intervals.
 }
-  \item{decimal.places}{
-An integer value indicating the number of decimal places. Its default value is set as \code{3}.
-}
   \item{seed}{
 Seed for a random number generator.
+}
+  \item{x}{
+An object of S3 class "mwtp."
+}
+  \item{digits}{
+A number of significant digits. See the function format.
+}
+  \item{scientific}{
+Whether MWTPs and their confidence intervals are encoded in scientific format. See the function format.
+}
+  \item{...}{
+Arguments passed to the function format.
 }
 }
 \details{
@@ -41,7 +54,9 @@ The definition of the marginal willingness to pay (MWTP) for a non-monetary vari
 When the argument \code{nonmonetary.variables} is not set by the user, variables in the argument \code{output}---except for those assigned by the argument \code{monetary.variables}---are treated as non-monetary variables, and the MWTPs for these variables are calculated. In the model that assumes alternative-specific attribute variables (that is, a labeled type choice experiment design), variables in the argument \code{output} are classified into monetary and non-monetary variables according to the alternatives. Therefore, the argument \code{monetary.variables} is set as a vector, whereas the argument \code{nonmonetary.variables} is set as a list of vectors.
 }
 \value{
-The MWTPs for the non-monetary attribute variables and confidence intervals for each of the MWTPs. 
+This function returns an object of S3 class "mwtp" that is a list with the following components.
+  \item{mwtp.table}{A matrix containing the MWTPs for the non-monetary attribute variables and confidence intervals for each of the MWTPs.}
+  \item{mwtps}{A matrix containing empirical distributions of the MWTPs.} 
 }
 \references{
 Louviere, J. J., Hensher, D. A. and Swait, J. D. (2000) \emph{Stated Choice Methods: Analysis and Application}. Cambridge University Press.

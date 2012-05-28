@@ -15,3 +15,7 @@ simex,
 survival
 )
 
+S3method(print, cedes)
+S3method(print, gofm)
+S3method(print, mwtp)
+

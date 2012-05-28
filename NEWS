@@ -1,5 +1,16 @@
 Changes to package support.CEs
 
+2012-05-28, version 0.2-2
+- Modified the output from the design functions.
+    These return an object of S3 class "cedes."
+- Modified the output from the function gofm.
+    It returns an object of S3 class "gofm."
+- Modified the argument in the function mwtp.
+    Argument decimal.places is deleted.
+- Modified the output from the function mwtp.
+    It returns an object of S3 class "mwtp."
+    Structure of the output is modified.
+
 2012-03-06, version 0.2-1
 - Modified the output from the functions Lma.design or rotation.design.
     A component design.information is added to the output.

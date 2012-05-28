@@ -120,6 +120,8 @@ function(candidate.array = NULL,
     my.choice.experiment.design <- list(alternatives = ALTS,
                                         candidate = OA,
                                         design.information = desinf)
+    class(my.choice.experiment.design) <- "cedes"
+
     return(my.choice.experiment.design)
 }
 

@@ -1,5 +1,6 @@
 \name{Lma.design}
 \alias{Lma.design}
+\alias{print.cedes}
 \title{
 Creating a choice experiment design using the L^MA method
 }
@@ -10,6 +11,8 @@ This function creates a choice experiment design according to the \emph{L^MA} me
 Lma.design(candidate.array = NULL, attribute.names, 
            nalternatives, nblocks, row.renames = TRUE, 
            seed = NULL)
+
+\method{print}{cedes}(x, ...)
 }
 \arguments{
   \item{candidate.array}{
@@ -30,6 +33,12 @@ A logical variable describing whether or not the row names of a choice experimen
   \item{seed}{
 Seed for a random number generator.
 }
+  \item{x}{
+An object of S3 class "ceds."
+}
+  \item{...}{
+Arguments passed to the function \code{print}.
+}
 }
 \details{
 The \emph{L^MA} method directly creates a choice experiment design from an orthogonal main-effect array (Johnson et al. 2007). In this method, an orthogonal main-effect array with \code{M} times \code{A} columns of \code{L} level factors is used to create each choice set that contains \code{M} alternatives of \code{A} attributes with \code{L} levels. Each row of the array corresponds to the alternatives of a choice set.
@@ -47,7 +56,7 @@ When a large choice experiment design is created (that is, there are numerous ch
 Under default settings, this function uses an orthogonal main-effect array that is automatically produced by the function \code{oa.design} in the package \pkg{DoE.base} based on the argument \code{attribute.names} to create a choice experiment design. However, when there is no array corresponding to the argument \code{attribute.names}, the function \code{oa.design} returns a full factorial based on the argument \code{attribute.names} (See help for the function \code{oa.design} in the packge \pkg{DoE.base}). On the other hand, when this function does not create a choice experiment design matching the user's requirements, the user might achieve it by assigning an arbitrary (user-defined) array to the argument \code{candidate.array}: this function uses the array to create a choice experiment design. When the user-defined array is used, the last column of the array must contain a column for dividing the design based on the argument \code{nblocks}. The arguments \code{attribute.names} and \code{nblocks} must also be assigned according to the array.
 }
 \value{
-This function provides a list with the following components.
+This function returns an object of S3 class "cedes" that is a list with the following components.
   \item{alternatives }{A list of objects, \code{alt.j}: the \emph{j}th alternative in each choice set created by this function. Each of \code{alt.j} includes a variable \code{BLOCK} describing the serial number of blocks, a variable \code{QES} describing the serial number of choice experiment questions for each value of the variable \code{BLOCK}, a variable \code{ALT} describing the serial number of alternatives for each value of the \code{QES} variable, and attribute variables corresponding to the argument \code{attribute.names}.}
   \item{candidate }{A candidate array used for creating a choice experiment design, which is generated using the function \code{oa.design} in the package \pkg{DoE.base} or which the user sets for the argument \code{candidate.array}. When \code{nblocks} >= 2, the last column in this value (\code{candidate}) shows a factor that is used for blocking.}
   \item{design.information }{Information related to the CE design created by this function, which is used as arguments in post-processing functions, such as the functions \code{questionnaire} and \code{make.design.matrix}. This list includes objects such as the number of blocks into which the CE design is divided (\code{nblocks}), the number of questions per block (\code{nquestions}), the number of alternatives per choice set excluding an opt-out alternative (\code{nalternatives}), and the number of attributes per alternative (\code{nalternatives}).}
@@ -66,10 +75,11 @@ Hideo Aizaki
 }
 \examples{
 # See "Details" for the data set syn.res2.
-Lma.design(attribute.names = list(
+des2 <- Lma.design(attribute.names = list(
  Eco = c("Conv.", "More", "Most"),
  Price = c("1", "1.1", "1.2")),
  nalternatives = 3, nblocks = 2, 
  row.renames = FALSE, seed = 987)
+des2
 }
 \keyword{design}

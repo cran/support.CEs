@@ -12,8 +12,8 @@ The package \pkg{support.CEs} provides seven basic functions that support an imp
 \tabular{ll}{
 Package: \tab support.CEs\cr
 Type: \tab Package\cr
-Version: \tab 0.2-1\cr
-Date: \tab 2012-03-06\cr
+Version: \tab 0.2-2\cr
+Date: \tab 2012-05-28\cr
 License: \tab GPL (>=2)\cr
 LazyLoad: \tab yes\cr
 }

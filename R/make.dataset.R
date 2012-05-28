@@ -32,7 +32,7 @@ function(respondent.dataset,
     for (i in 1:nrespondents) {
         for (j in colmuns.choice.indicators) {
             for (k in 1:nalternatives) {
-                my.respondent.dataset$SELECT[m]<-my.respondent.dataset[m,j]
+                my.respondent.dataset$SELECT[m] <- my.respondent.dataset[m,j]
                 m <- m + c(1)
             }
         }

@@ -60,6 +60,7 @@ des1 <- rotation.design(attribute.names = list(
  Price = c("1", "1.1", "1.2")), 
  nalternatives = 2, nblocks = 1, row.renames = FALSE, 
  randomize = TRUE, seed = 987)
+des1
 desmat1 <- make.design.matrix(choice.experiment.design = des1, 
  optout = TRUE, 
  categorical.attributes = c("Region", "Eco"), 
@@ -84,6 +85,7 @@ des2 <- Lma.design(attribute.names = list(
  Eco = c("Conv.", "More", "Most"), 
  Price = c("1", "1.1", "1.2")), 
  nalternatives = 3, nblocks = 2, row.renames = FALSE, seed = 987)
+des2
 desmat2 <- make.design.matrix(choice.experiment.design = des2, 
  optout = TRUE, 
  categorical.attributes = c("Eco"), 
