@@ -1,5 +1,9 @@
 Changes to package support.CEs
 
+2012-06-14, version 0.2-3
+- Modified the functions questionnaire and make.dataset to remove notes when checking R code.
+- Modified the functions print.mwtp and make.dataset.
+
 2012-05-28, version 0.2-2
 - Modified the output from the design functions.
     These return an object of S3 class "cedes."

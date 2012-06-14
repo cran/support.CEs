@@ -43,7 +43,7 @@ The data set that is suitable for the function \code{clogit} is returned. In add
   \item{RES}{A variable corresponding to a logical variable that takes on \code{TRUE} when the alternative is selected and \code{FALSE} when it is not. }
 }
 \references{
-Aizaki, H. and Nishimura, K. (2008) Design and Analysis of Choice Experiments Using R: A Brief Introduction. \emph{Agricultural Information Research}, \bold{17}(2), 86--94. \url{http://www.jstage.jst.go.jp/article/air/17/2/17_86/_article}
+Aizaki, H. and Nishimura, K. (2008) Design and Analysis of Choice Experiments Using R: A Brief Introduction. \emph{Agricultural Information Research}, \bold{17}(2), 86--94. \url{http://dx.doi.org/10.3173/air.17.86}
 }
 \author{
 Hideo Aizaki

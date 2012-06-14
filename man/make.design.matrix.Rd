@@ -15,7 +15,7 @@ make.design.matrix(choice.experiment.design,
 }
 \arguments{
   \item{choice.experiment.design}{
-A data frame containing a choice experiment design (excluding an opt-out alternative) created by the function \code{Lma.design} or \code{rotation.design}.
+A data frame containing a choice experiment design created by the function \code{Lma.design} or \code{rotation.design}.
 }
   \item{optout}{
 A logical variable describing whether or not the opt-out alternative is included in the design matrix created by this function. If \code{TRUE} (default), the opt-out alternative is included; otherwise it is not.
@@ -54,7 +54,7 @@ This function provides a design matrix that can be directly assigned to an argum
   \item{ASC}{Alternative specific constant(s). When the choice experiment design is labeled, the serial number of alternatives (\code{ALT}) is automatically appended to the tail of \code{ASC} (such as \code{ASC1}, \code{ASC2}, and \code{ASC3})}
 }
 \references{
-Aizaki, H. and Nishimura, K. (2008) Design and Analysis of Choice Experiments Using R: A Brief Introduction. \emph{Agricultural Information Research}, \bold{17}(2), 86--94. \url{http://www.jstage.jst.go.jp/article/air/17/2/17_86/_article}
+Aizaki, H. and Nishimura, K. (2008) Design and Analysis of Choice Experiments Using R: A Brief Introduction. \emph{Agricultural Information Research}, \bold{17}(2), 86--94. \url{http://dx.doi.org/10.3173/air.17.86}
 }
 \author{
 Hideo Aizaki
