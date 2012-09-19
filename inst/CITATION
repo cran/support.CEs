@@ -1,0 +1,19 @@
+citHeader("To cite support.CEs in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Basic Functions for Supporting an Implementation of Choice Experiments in {R}",
+  author       = personList(as.person("Hideo Aizaki")),
+  journal      = "Journal of Statistical Software, Code Snippets",
+  year         = "2012",
+  volume       = "50",
+  number       = "2",
+  pages        = "1--24",
+  url          = "http://www.jstatsoft.org/v50/c02/",
+
+  textVersion  =
+  paste("Hideo Aizaki (2012).",
+        "Basic Functions for Supporting an Implementation of Choice Experiments in R.",
+        "Journal of Statistical Software, Code Snippets, 50(2), 1-24.",
+        "URL http://www.jstatsoft.org/v50/c02/.")
+)
+

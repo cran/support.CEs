@@ -52,6 +52,9 @@ The agricultural product has three attributes: (1) the region of origin: this at
 \author{
 Hideo Aizaki
 }
+\references{
+Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
+}
 \seealso{
  \code{\link{make.dataset}}, \code{\link{rotation.design}}
 }

@@ -62,6 +62,8 @@ This function returns an object of S3 class "mwtp" that is a list with the follo
 Louviere, J. J., Hensher, D. A. and Swait, J. D. (2000) \emph{Stated Choice Methods: Analysis and Application}. Cambridge University Press.
 
 Krinsky, I. and Robb. A. L. (1986) On Approximating the Statistical Properties of Elasticities. \emph{The Review of Economics and Statistics}, \bold{68}, 715--719.
+
+Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
 \author{
 Hideo Aizaki

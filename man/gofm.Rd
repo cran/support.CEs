@@ -39,6 +39,8 @@ This function returns an object of S3 class "gofm" that is a list with the follo
 }
 \references{
 Ben-Akiva, M. and Lerman, S. R. (1985) \emph{Discrete Choice Analysis: Theory and Application to Travel Demand}. The MIT Press.
+
+Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
 \author{
 Hideo Aizaki

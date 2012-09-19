@@ -1,5 +1,9 @@
 Changes to package support.CEs
 
+2012-09-19, version 0.2-3
+- Modified the function questionnaire.
+- Added the citation file.
+
 2012-06-14, version 0.2-3
 - Modified the functions questionnaire and make.dataset to remove notes when checking R code.
 - Modified the functions print.mwtp and make.dataset.

@@ -66,6 +66,8 @@ Messages are frequently shown immediately after executing this function when it 
 Johnson, F. R., Kanninen, B., Bingham, M. and \"{O}zdemir, S. (2007) Experimental Design for Stated Choice Studies. In B. J. Kanninen (ed), \emph{Valuing Environmental Amenities Using Stated Choice Studies: A Common Sense Approach to Theory and Practice}. pp.159--202. Springer.
 
 Louviere, J. J., Hensher, D. A. and Swait, J. D. (2000) \emph{Stated Choice Methods: Analysis and Application}. Cambridge University Press.
+
+Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
 \author{
 Hideo Aizaki

@@ -55,6 +55,8 @@ This function provides a design matrix that can be directly assigned to an argum
 }
 \references{
 Aizaki, H. and Nishimura, K. (2008) Design and Analysis of Choice Experiments Using R: A Brief Introduction. \emph{Agricultural Information Research}, \bold{17}(2), 86--94. \url{http://dx.doi.org/10.3173/air.17.86}
+
+Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
 \author{
 Hideo Aizaki

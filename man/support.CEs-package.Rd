@@ -12,8 +12,8 @@ The package \pkg{support.CEs} provides seven basic functions that support an imp
 \tabular{ll}{
 Package: \tab support.CEs\cr
 Type: \tab Package\cr
-Version: \tab 0.2-3\cr
-Date: \tab 2012-06-14\cr
+Version: \tab 0.2-4\cr
+Date: \tab 2012-09-19\cr
 License: \tab GPL (>=2)\cr
 LazyLoad: \tab yes\cr
 }
@@ -76,6 +76,9 @@ Attribute C \tab c1 \tab c2 \cr
 Hideo Aizaki
 
 Maintainer: Hideo Aizaki <aizaki@affrc.go.jp>
+}
+\references{
+Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
 \seealso{
   \code{\link[DoE.base]{oa.design}}, \code{\link[survival]{clogit}}

@@ -2,8 +2,8 @@ Package: support.CEs
 Type: Package
 Title: Basic functions for supporting an implementation of choice
         experiments
-Version: 0.2-3
-Date: 2012-06-14
+Version: 0.2-4
+Date: 2012-09-19
 Author: Hideo Aizaki
 Maintainer: Hideo Aizaki <aizaki@affrc.go.jp>
 Description: The support.CEs package provides seven basic functions
@@ -13,5 +13,5 @@ Depends: DoE.base, MASS, simex, survival
 Repository: CRAN
 LazyLoad: yes
 LazyData: yes
-Packaged: 2012-06-14 01:21:54 UTC; user
-Date/Publication: 2012-06-14 10:37:00
+Packaged: 2012-09-19 02:43:37 UTC; user
+Date/Publication: 2012-09-19 05:32:25
