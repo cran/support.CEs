@@ -73,8 +73,10 @@ function(candidate.array = NULL,
             rownames(alt[[i]]) <- c(1:nquestions)
         }
     }
-    if (nblocks == 1){
-        OA <- backupOA
+    if (is.null(candidate.array) == TRUE) {
+        if (nblocks == 1){
+            OA <- backupOA
+        }
     }
     ALTS <- list(NULL)
     for (i in 1:nalternatives) {

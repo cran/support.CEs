@@ -11,8 +11,7 @@ export(
 import(
 DoE.base,
 MASS,
-simex,
-survival
+simex
 )
 
 S3method(print, cedes)

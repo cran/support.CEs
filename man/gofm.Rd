@@ -2,7 +2,7 @@
 \alias{gofm}
 \alias{print.gofm}
 \title{
-Calculating goodness-of-fit measures for the conditional logit model
+Calculating goodness-of-fit measures
 }
 \description{
 This function provides rho-squared and rho-squared adjusted by the number of estimated coefficients.
@@ -14,7 +14,7 @@ gofm(output)
 }
 \arguments{
   \item{output}{
-A name of an object containing the output from the function \code{clogit}.
+An object containing the output from the function \code{clogit} or \code{glm}.
 }
   \item{x}{
 An object of class "gofm."
@@ -28,6 +28,8 @@ Arguments passed to the function \code{format}.
 }
 \details{
 This function provides rho-squared (also called McFadden's R-squared or pseudo R-squared), rho-squared adjusted by the number of estimated coefficients, the number of estimated coefficients, and log likelihood values at the start and at convergence.
+
+In version 0.3-0 and later versions, this function is also available for calculating goodness-of-fit measures for binary choice models estimated by using the function \code{glm} in the package \pkg{stats}.
 }
 \value{
 This function returns an object of S3 class "gofm" that is a list with the following components.
@@ -46,7 +48,7 @@ Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Exp
 Hideo Aizaki
 }
 \seealso{
- \code{\link[survival]{clogit}}, \code{\link{make.dataset}}
+ \code{\link[survival]{clogit}}, \code{\link[stats]{glm}}, \code{\link{make.dataset}}
 }
 \examples{
 # See "Examples" for the function make.dataset.

@@ -1,5 +1,7 @@
 questionnaire <-
-function(choice.experiment.design)
+function(choice.experiment.design,
+         common = NULL,
+         quote = TRUE)
 {
 # Assign design information
   nblocks <- choice.experiment.design$design.information$nblocks
@@ -10,11 +12,27 @@ function(choice.experiment.design)
 
 # Integrate alternatives into data.frame
   my.design <- as.matrix(choice.experiment.design[[1]][[1]])
-  for (i in 2:nalternatives) {
-    my.design <- rbind(my.design,
-                       as.matrix(choice.experiment.design[[1]][[i]]))
+
+  if (nalternatives >= 2) {
+    for (i in 2:nalternatives) {
+      my.design <- rbind(my.design,
+                         as.matrix(choice.experiment.design$alternatives[[i]]))
+    }
   }
+
+  if (is.null(common) == FALSE) {
+    nalternatives <- nalternatives + 1
+    common.base <- choice.experiment.design$alternatives[[1]]
+    common.base[, 3] <- nalternatives
+    common.base <- as.matrix(common.base)
+    for (i in attribute.names) {
+      common.base[, i] <- common[[i]]
+    }
+    my.design <- rbind(my.design, common.base)
+  }
+
   rownames(my.design) <- NULL 
+
   my.design <- data.frame(my.design)
   my.design$BLOCK <- as.numeric(as.character(my.design$BLOCK))
   my.design$QES <- as.numeric(as.character(my.design$QES))
@@ -36,7 +54,7 @@ function(choice.experiment.design)
       }
       temp <- t(temp)
       colnames(temp) <- alternative.names
-      print(temp)
+      print(temp, quote = quote)
       cat("\n")
     }
   }

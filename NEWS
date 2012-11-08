@@ -1,6 +1,14 @@
 Changes to package support.CEs
 
-2012-09-19, version 0.2-3
+2012-11-08, version 0.3-0
+- Modified the functions questionnaire, make.design.matrix, mwtp, and gofm.
+    These are also available for binary choice experiments.
+    The functions questionnaire and make.design.matrix handle a common base option.
+    The function questionnaire can print choice sets without quotation marks.
+    The function mwtp returns a matrix of replicated estimates. 
+- Added a synthetic data set syn.res3 for binary choice experiments.
+
+2012-09-19, version 0.2-4
 - Modified the function questionnaire.
 - Added the citation file.
 

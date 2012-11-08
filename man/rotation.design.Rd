@@ -19,7 +19,7 @@ A data frame containing an array created by the user. Normally, when this functi
 A list of the names of attributes and levels.
 }
   \item{nalternatives}{
-An integer value describing the number of alternatives per choice set, excluding an opt-out alternative such as a "none of these."
+An integer value describing the number of alternatives per choice set, excluding an opt-out alternative such as a "none of these" or common base alternative.
 }
   \item{nblocks}{
 An integer value describing the number of blocks into which a choice experiment design is divided.
@@ -43,21 +43,24 @@ The mix-and-match method modifies the rotation method by introducing the randomi
 
 When the mix-and-match method is implemented by this function, the argument \code{randomize} is set as \code{TRUE} (default). When the rotation method is implemented by this function, the argument is set as \code{FALSE}.
 
-When this function is used, the combination of attributes and attribute levels, the number of alternatives per choice set excluding an opt-out alternative, and the number of blocks are respectively assigned to the arguments.
+When this function is used, the combination of attributes and attribute levels, the number of alternatives per choice set excluding an opt-out or common base option, and the number of blocks are respectively assigned to the arguments.
 
-The combination of attributes and attribute levels are assigned to the argument \code{attribute.names} in list format. For example, the alternative has three attributes, each of which has three levels: an attribute X with the three levels of x1, x2, and x3; an attribute Y with the three levels of y1, y2, and y3; and an attribute Z with the three levels of 10, 20, and 30. In this case, the argument \code{attribute.names} is set to be \code{list(X = c("x1", "x2", "x3"), Y = c("y1", "y2", "y3"), Z = c("10", "20", "30"))}.
+The combination of attributes and attribute levels are assigned to the argument \code{attribute.names} in list format. For example, the alternative has three attributes, each of which has three levels: an attribute X with the three levels of x1, x2, and x3; an attribute Y with the three levels of y1, y2, and y3; and an attribute Z with the three levels of 10, 20, and 30. In this case, the argument is set as follows:
 
-The number of alternatives per choice set is defined by the argument \code{nalternatives}: the number of alternatives does not include an opt-out alternative such as the option "none of these."
+\code{attribute.names = list(X = c("x1", "x2", "x3"),} \cr
+\code{Y = c("y1", "y2", "y3"), Z = c("10", "20", "30"))}
+
+The number of alternatives per choice set is defined by the argument \code{nalternatives}: the number of alternatives does not include an opt-out option such as a "none of these" or a common base option.
 
 Similar to the function \code{Lma.design}, this function can divide a choice experiment design into two or more blocks based on the argument \code{nblocks}. A choice experiment design is randomly divided into \code{nblocks} blocks; therefore, \code{nblocks} must be divisors of the number of choice sets included in the choice experiment design.
 
 Under default settings, this function uses an orthogonal main-effect array that is automatically produced by the function \code{oa.design} based on the argument \code{attribute.names} to create a choice experiment design. However, when there is no array corresponding to the argument \code{attribute.names}, the function \code{oa.design} returns a full factorial based on the argument \code{attribute.names} (See help for the function \code{oa.design} in the packge \pkg{DoE.base}). On the other hand, when this function does not create a choice experiment design matching the user's requirements, the user might achieve it by assigning an arbitrary (user-defined) array to the argument \code{candidate.array}: this function uses the array to create a choice experiment design. When the user-defined array is used, the last column of the array must contain a column for dividing the design based on the argument \code{nblocks}. The arguments \code{attribute.names} and \code{nblocks} must also be assigned according to the array.
 }
 \value{
-This function returns an object of S3 class "cedes" (see Lma.design) that is a list with the following components.
+This function returns an object of S3 class "cedes" (see \code{Lma.design}) that is a list with the following components.
   \item{alternatives }{A list of objects, \code{alt.j}: the \emph{j}th alternative in each choice set created by this function. Each of \code{alt.j} includes a variable \code{BLOCK} describing the serial number of blocks, a variable \code{QES} describing the serial number of choice experiment questions for each value of the variable \code{BLOCK}, a variable \code{ALT} describing the serial number of alternatives for each value of the \code{QES} variable, and attribute variables corresponding to the argument \code{attribute.names}.}
   \item{candidate }{A candidate array used for creating a choice experiment design, which is generated using the \code{oa.design} function in the \pkg{DoE.base} package or which the user sets for the argument \code{candidate.array}. When \code{nblocks} >= 2, the last column in this value (\code{candidate}) shows a factor that is used for blocking.}
-  \item{design.information }{Information related to the CE design created by this function, which is used as arguments in post-processing functions, such as the functions \code{questionnaire} and \code{make.design.matrix}. This list includes objects such as the number of blocks into which the CE design is divided (\code{nblocks}), the number of questions per block (\code{nquestions}), the number of alternatives per choice set excluding an opt-out alternative (\code{nalternatives}), and the number of attributes per alternative (\code{nalternatives}).}
+  \item{design.information }{Information related to the choice experiment design created by this function, which is used as arguments in post-processing functions, such as the functions \code{questionnaire} and \code{make.design.matrix}. This list includes objects such as the number of blocks into which the choice experiment design is divided (\code{nblocks}), the number of questions per block (\code{nquestions}), the number of alternatives per choice set excluding an opt-out or common base option (\code{nalternatives}), and the number of attributes per alternative (\code{nattributes}).}
 An error message is displayed when the argument \code{nblocks} does not match a choice experiment design. In such a case, the argument \code{nblocks} is set to be a divisior of the number of rows of the choice experiment design. Ohter messages are frequently shown immediately after executing this function when it works properly. These messages are taken from the function \code{oa.design} and may be valuable to a user who wishes to define the original array and assign it the argument \code{candidate.array}.
 }
 \references{
@@ -72,13 +75,6 @@ Hideo Aizaki
 \code{\link{Lma.design}}, \code{\link{syn.res1}}, \code{\link[DoE.base]{oa.design}}
 }
 \examples{
-# See "Details" for the data set syn.res1.
-des1 <- rotation.design(attribute.names = list(
- Region = c("Reg_A", "Reg_B", "Reg_C"), 
- Eco = c("Conv.", "More", "Most"), 
- Price = c("1", "1.1", "1.2")), 
- nalternatives = 2, nblocks = 1, row.renames = FALSE, 
- randomize = TRUE, seed = 987)
-des1
+# See "Examples" for the function make.dataset.
 }
 \keyword{design}

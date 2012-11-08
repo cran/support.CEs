@@ -7,6 +7,12 @@ function(output,
          seed = NULL) 
 {
 # Initial setting
+    if(any(class(output) == "glm") == TRUE) {
+        output$var <- vcov(output)
+        output$assign <- as.list(1:length(output$coefficients))
+        names(output$assign) <- names(output$coefficients)
+    }
+
     if (is.null(seed) == FALSE) {
         set.seed(seed)
     }
@@ -67,7 +73,8 @@ function(output,
 
 # Format output
     output <- list(mwtp.table = t(rbind(MWTP=mwtps, confidence.intervals)),
-                   mwtps = repmwtps)
+                   mwtps = repmwtps,
+                   repb = repb)
     class(output) <- "mwtp"
   
     return(output)
