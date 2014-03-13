@@ -1,5 +1,16 @@
 Changes to package support.CEs
 
+2014-03-13, version 0.3-1
+- Modified the function gofm.
+    It also returns AIC and BIC.
+- Modified the function mwtp.
+    The delta method is available to calculate the confidence intervals of MWTPs.
+    Argument method is added.
+    Argument confidence.level is added.
+    Argument percentile.points is only kept for giving an error message regarding unused argument. It will be removed. Argument confidence.level is used instead.
+- Added three synthetic data sets: rice, pork, and rural.
+    
+
 2012-11-08, version 0.3-0
 - Modified the functions questionnaire, make.design.matrix, mwtp, and gofm.
     These are also available for binary choice experiments.

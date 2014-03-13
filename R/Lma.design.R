@@ -1,48 +1,64 @@
-Lma.design <-
-function(candidate.array = NULL,
-         attribute.names,
-         nalternatives,
-         nblocks,
-         row.renames = TRUE,
-         seed = NULL) 
+Lma.design <- function(candidate.array = NULL, attribute.names, nalternatives,
+                       nblocks, row.renames = TRUE, seed = NULL) 
 {
-# Initial setting 1/2
+# Name: Lma.design
+# Title: Creating a choice experiment design using the L^MA method
+# Arguments:
+#  candidate.array   A data frame containing an array created by the user
+#  attribute.names   A list of the names of attributes and levels
+#  nalternatives     An integer value describing the number of alternatives per choice set,
+#                      excluding an opt-out alternative or a common base alternative
+#  nblocks           An integer value describing the number of blocks into which
+#                      a choice experiment design is divided
+#  row.renames       A logical variable describing whether or not the row names of a choice 
+#                      experiment design created by this function are changed
+#  seed              Seed for a random number generator.
+
+
+
+# set variable
+
+    # calculate number of levels for each attribute 
     attribute.levels <- rep(sapply(attribute.names, length), nalternatives)
     if (nblocks >= 2) {
         attribute.levels <- c(attribute.levels, nblocks)
     }
 
-# Search an array corresponding to the argument
-    if (is.null(candidate.array) == TRUE) {
+# create orthogonal array
+
+    if (is.null(candidate.array) == TRUE) { # generate it using oa.design()
         OA <- oa.design(nlevels = attribute.levels, seed = seed)
     }
-    else {
+    else { # use arbitrary user-defined array
         OA <- candidate.array
     }
 
-# Initial setting 2/2
-    nattributes <- length(attribute.names)
-    total.nattributes <- nattributes * nalternatives
-    nquestions <- nrow(OA)
-    nquestions_nblocks <- nquestions / nblocks
-    alt <- vector("list", nalternatives)
+# set variables, matrix, and list
 
-    if (is.null(candidate.array) == TRUE) {
-        if (nblocks == 1) {
+    nattributes <- length(attribute.names)           # number of attributes per alternative
+    total.nattributes <- nattributes * nalternatives # total number of attribute
+    nquestions <- nrow(OA)                           # number of questions
+    nquestions_nblocks <- nquestions / nblocks       # number of question per block
+    alt <- vector("list", nalternatives)             # list object "alt"
+
+    if (is.null(candidate.array) == TRUE) {          # assign dummy column to orthogonal array
+        if (nblocks == 1) {                          #  if number of blocks is one
             backupOA <- OA
             OA <- cbind(OA, DUMMY=rep(1, nquestions))
         }
     }
 
-# Randomize order of questions
-    if (is.null(seed) == FALSE) {
+# randomize order of questions
+
+    if (is.null(seed) == FALSE) { # set seed for random number generator
         set.seed(seed)
     }
-    ALTS <- transform(OA, r = runif(nquestions))
-    ALTS <- ALTS[order(ALTS[,(total.nattributes + 1)], ALTS$r), ]
+    ALTS <- transform(OA, r = runif(nquestions)) # assign column containing uniform random number
+    ALTS <- ALTS[order(ALTS[,(total.nattributes + 1)], ALTS$r), ] # randomize order of rows (questions)
 
-# Store alternatives
-    if (nattributes == 1) {
+# create alternatives
+
+    if (nattributes == 1) { # number of attributes == 1
         for (i in 1:nalternatives){
             temp <- cbind(BLOCK = as.numeric(ALTS[, (total.nattributes + 1)]),
                           QES = rep(1:nquestions_nblocks, nblocks),
@@ -53,7 +69,7 @@ function(candidate.array = NULL,
             alt[[i]] <- temp
         }
     }
-    else {
+    else { # number of attributes >= 2
         for (i in 1:nalternatives) {
             temp <- ALTS[, (1 + (i - 1) * nattributes):(i * nattributes)]
             colnames(temp) <- names(attribute.names)
@@ -67,7 +83,7 @@ function(candidate.array = NULL,
         }
     }
 
-# Format output
+# format output
     if (row.renames == TRUE) {
         for (i in 1:nalternatives) {
             rownames(alt[[i]]) <- c(1:nquestions)

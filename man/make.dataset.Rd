@@ -95,7 +95,6 @@ mwtp(
  monetary.variables = c("Price"), 
  nonmonetary.variables = 
   c("Reg_B", "Reg_C", "More", "Most", "More:F", "Most:F"), 
- percentile.points = c(5, 95),
  seed = 987)
 
 # Case 2
@@ -134,7 +133,6 @@ mwtp(
  monetary.variables = c("Price1", "Price2", "Price3"), 
  nonmonetary.variables = list(
   c("More1", "Most1"), c("More2", "Most2"), c("More3", "Most3")), 
- percentile.points = c(5, 95),
  seed = 987)
 
 # Case 3
@@ -174,7 +172,6 @@ mwtp(output = blout,
  monetary.variables = c("Price"),
  nonmonetary.variables = 
   c("Reg_B", "Reg_C", "More", "Most"),
- percentile.points = c(5, 95),
  seed = 987)
 
 }

@@ -1,15 +1,26 @@
-make.dataset <-
-function(respondent.dataset,
-         design.matrix,
-         choice.indicators,
-         detail = FALSE) 
+make.dataset <- function(respondent.dataset, design.matrix, choice.indicators, detail = FALSE) 
 {
-# Initial setting
+# Name: make.dataset
+# Title: Making a data set
+# Arguments:
+#  respondent.dataset   A data frame containing respondents' answers to choice experiment questions.
+#  design.matrix        A data frame containing a design matrix created by the function make.design.matrix()
+#  choice.indicators    A vector of variables showing the alternative of which was selected in 
+#                         each choice experiment question.
+#  detail               A logical variable describing whether or not some variables contained in 
+#                         the argument respondent.dataset and variables created in this function are
+#                         stored in a data set produced by this function.
+
+
+
+# initial setting
+
   nquestions <- length(choice.indicators)
   nalternatives <- length(table(design.matrix$ALT))
   nrespondents <- length(respondent.dataset$ID)
 
-# Convert respondent.dataset into "one-row-one-alternative" style data set
+# convert respondent.dataset into "one-row-one-alternative" style data set
+
   my.respondent.dataset <- rbind(respondent.dataset, respondent.dataset)
   if (nquestions * nalternatives > 2) {
     for (i in 1:(nquestions * nalternatives - 2)) {
@@ -18,7 +29,8 @@ function(respondent.dataset,
   }
   my.respondent.dataset <- my.respondent.dataset[order(my.respondent.dataset$ID), ]
 
-# Add QES and ALT variables to respondent data set 
+# add QES and ALT variables to respondent data set 
+
   temp.BLOCK <- my.respondent.dataset$BLOCK
   col.BLOCK <- which(colnames(my.respondent.dataset) == "BLOCK")
   my.respondent.dataset <- subset(my.respondent.dataset, select = -col.BLOCK)
@@ -29,7 +41,8 @@ function(respondent.dataset,
   my.respondent.dataset$ALT <- rep(1:nalternatives,
                                    times = nrespondents * nquestions)
 
-# Convert choice.indicators into SELECT variable
+# convert choice.indicators into SELECT variable
+
   col.choice.indicators <- rep(0, nquestions)
   for (i in 1:nquestions) {
     col.choice.indicators[i] <- which(colnames(my.respondent.dataset) ==
@@ -45,10 +58,12 @@ function(respondent.dataset,
     }
   }
 
-# Convert SELECT variable into RES variable
+# convert SELECT variable into RES variable
+
   my.respondent.dataset$RES <- my.respondent.dataset$SELECT == my.respondent.dataset$ALT
 
-# Combine respondent data set and design matrix
+# combine respondent data set and design matrix
+
   my.respondent.dataset$mt <- my.respondent.dataset$ALT +
                               my.respondent.dataset$QES * 100 +
                               my.respondent.dataset$BLOCK * 10000
@@ -59,10 +74,12 @@ function(respondent.dataset,
   design.matrix <- subset(design.matrix, select = which(col.AQB == FALSE))
   dataset <- merge(my.respondent.dataset, design.matrix, by = "mt")
 
-# Add STR variable
+# add STR variable
+
   dataset$STR <- dataset$QES + dataset$ID * 100
 
-# Format output
+# format output
+
   col.mt <- which(colnames(dataset) == "mt")
   dataset <- subset(dataset, select = -col.mt)
   if (detail == FALSE) {

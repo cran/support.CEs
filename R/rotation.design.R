@@ -1,17 +1,30 @@
-rotation.design <-
-function(candidate.array = NULL,
-         attribute.names,
-         nalternatives,
-         nblocks,
-         row.renames = TRUE,
-         randomize = FALSE,
-         seed = NULL) 
+rotation.design <- function(candidate.array = NULL, attribute.names, nalternatives,
+                            nblocks, row.renames = TRUE, randomize = FALSE, seed = NULL) 
 {
-# Initial setting
+# Name: rotation.design
+# Title: Creating a choice experiment design using the rotation or mix-and-match method
+# Arguments:
+#  candidate.array   A data frame containing an array created by the user.
+#  attribute.names   A list of the names of attributes and levels.
+#  nalternatives     An integer value describing the number of alternatives per choice set,
+#                      excluding an opt-out alternative or common base alternative.
+#  nblocks           An integer value describing the number of blocks into which
+#                      a choice experiment design is divided.
+#  row.renames       A logical variable describing whether or not the row names of a choice 
+#                      experiment design created by this function are changed
+#  randomize         If TRUE, the function executes the mix-and-match method;
+#                      if FALSE, the function executes the rotation method.
+#  seed              Seed for a random number generator.
+
+
+
+# initial setting
+
     attribute.levels <- sapply(attribute.names, length)
     nattributes <- length(attribute.levels)
 
-# Search an array corresponding to the argument
+# search an array corresponding to the argument
+
     if (is.null(candidate.array) == TRUE) {
         OA <- oa.design(nlevels = attribute.levels, seed = seed)
     }
@@ -21,7 +34,8 @@ function(candidate.array = NULL,
 
     nquestions <- nrow(OA)
 
-# Check number of blocks against number of rows of the design
+# check number of blocks against number of rows of the design
+
     if ((nquestions%%nblocks) != 0) {
         cat("\n")
         cat("Your nblocks =", nblocks, "\n")
@@ -29,7 +43,8 @@ function(candidate.array = NULL,
         stop("Number of blocks should be divisors of number of rows of the design.", call. = FALSE)
     }
 
-# Rotation design
+# rotation design
+
     ALTS <- vector("list", nalternatives)
     ALTS[[1]] <- matrix(as.numeric(as.matrix(OA)), nrow = nquestions, ncol = nattributes)
     for (i in 2:nalternatives) {
@@ -39,7 +54,8 @@ function(candidate.array = NULL,
         ALTS[[i]] <- sweep(ALTS[[(i - 1)]], 2, apply(ALTS[[(i - 1)]], 2, max), "%%") + 1
     }
 
-# Rename row
+# rename row
+
     if (row.renames != TRUE) { 
         OriginalRowNames <- row.names(OA)
         for (i in 1:nalternatives) {
@@ -47,7 +63,8 @@ function(candidate.array = NULL,
         }
     }
 
-# Mix-and-Match design
+# mix-and-Match design
+
     if (is.null(seed) == FALSE) {
         set.seed(seed)
     }
@@ -73,7 +90,8 @@ function(candidate.array = NULL,
         }
     }
 
-# Randomize order of questions
+# randomize order of questions
+
     nquestions_nblocks <- nquestions / nblocks
     RndUnif <- runif(nquestions)
     for (i in 1:nalternatives) {
@@ -82,7 +100,8 @@ function(candidate.array = NULL,
         ALTS[[i]] <- ALTS[[i]][, 1:nattributes]
     }
 
-# Add BLOCK, QES, and ALT variables to ALTS[[i]]
+# add BLOCK, QES, and ALT variables to ALTS[[i]]
+
     for (i in 1:nalternatives) {
         ALTS[[i]] <- cbind(rep(1:nblocks, each = nquestions_nblocks),
                            rep(1:nquestions_nblocks, nblocks),
@@ -90,19 +109,22 @@ function(candidate.array = NULL,
                            ALTS[[i]])
     }
 
-# Convert ALTS[[i]] into data.frame
+# convert ALTS[[i]] into data.frame
+
     for (i in 1:nalternatives) {
         ALTS[[i]] <- data.frame(ALTS[[i]])
     }
 
-# Treat attribute columns as factors
+# treat attribute columns as factors
+
     for (i in 1:nalternatives) {
         for (j in 1:nattributes) {
             ALTS[[i]][, (j + 3)] <- factor(ALTS[[i]][, (j + 3)])
         }
     }
 
-# Assign names to attributes/levels
+# assign names to attributes/levels
+
     for (i in 1:nalternatives) {
         colnames(ALTS[[i]]) <- c("BLOCK", "QES", "ALT", names(attribute.names))
         for (j in 1:nattributes){
@@ -110,7 +132,8 @@ function(candidate.array = NULL,
         }
     }
 
-# Format output
+# format output
+
     names(ALTS) <- paste("alt.", 1:nalternatives, sep = "")
     desinf <- list(nalternatives = nalternatives,
                    nblocks = nblocks,

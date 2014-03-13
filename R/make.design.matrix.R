@@ -1,19 +1,38 @@
-make.design.matrix <-
-function(choice.experiment.design,
-         optout = TRUE,
-         categorical.attributes = NULL,
-         continuous.attributes = NULL,
-         unlabeled = TRUE,
-         common = NULL,
-         binary = FALSE) 
+make.design.matrix <- function(choice.experiment.design, optout = TRUE, 
+                               categorical.attributes = NULL,
+                               continuous.attributes = NULL,
+                               unlabeled = TRUE, common = NULL, binary = FALSE) 
 {
-# Assign design information
+# Name: make.design.matrix
+# Title: Converting a choice experiment design into a design matrix
+# Arguments:
+#  choice.experiment.design   A data frame containing a choice experiment design created
+#                               by the function Lma.design() or rotation.design().
+#  optout                     A logical variable describing whether or not the opt-out alternative
+#                               is included in the design matrix created by this function.
+#  categorical.attributes     A vector containing the names of attributes treated as categorical
+#                               independent variables in the analysis.
+#  continuous.attributes      A vector containing the names of attributes treated as continuous
+#                               independent variables in the analysis.
+#  unlabeled                  A logical variable describing the types of a choice experiment
+#                               design assigned by the argument choice.experiment.design.
+#  common                     A vector containing a fixed combination of attribute-levels 
+#                               corresponding to a common base option in each question.
+#  binary                     When the function is applied to the conditional logit model, 
+#                               the argument is set as FALSE. When the function is applied to
+#                               the binary choice model, it is set as TRUE.
+
+
+
+# assign design information
+
   nblocks <- choice.experiment.design$design.information$nblocks
   nquestions <- choice.experiment.design$design.information$nquestions
   nalternatives <- choice.experiment.design$design.information$nalternatives
   nattributes <- choice.experiment.design$design.information$nattributes
 
-# Initial setting
+# set variables
+
   variable.names <- NULL
   ced <- choice.experiment.design$alternatives
   
@@ -33,10 +52,11 @@ function(choice.experiment.design,
 
   conv.ced <- vector("list", nalternatives)
 
-# Create attribute variables
+# create attribute variables
+
   for (i in 1:nalternatives) {
 
-  # Categorical attribute variables
+    # categorical attribute variables
     if (is.null(categorical.attributes) == FALSE) {
       for (j in 1:length(categorical.attributes)) {
         k <- which(names(ced[[i]]) == categorical.attributes[j])
@@ -48,7 +68,7 @@ function(choice.experiment.design,
       }
     }
 
-  # Continuous attribute variables
+    # continuous attribute variables
     if (is.null(continuous.attributes) == FALSE) {
       for (j in 1:length(continuous.attributes)) {
         k <- which(names(ced[[i]]) == continuous.attributes[j]) 
@@ -59,12 +79,13 @@ function(choice.experiment.design,
     }
   }
 
-# Create design matrix
+# create design matrix
+
   nvariables <- length(variable.names) / nalternatives
 
-  # Multinomial choice 
+  # multinomial choice 
   if (binary == FALSE) {
-    # Unlabeled
+    # unlabeled
     if (unlabeled == TRUE) {
       my.design <- conv.ced[[1]]
       for (i in 2:nalternatives) {
@@ -72,7 +93,7 @@ function(choice.experiment.design,
       }
       colnames(my.design) <- variable.names[1: nvariables]
     }
-    # Labled
+    # labled
     else {
       my.design <- diag.block(conv.ced)
       variable.names <- paste(variable.names,
@@ -81,7 +102,7 @@ function(choice.experiment.design,
       colnames(my.design) <- variable.names
     }
 
-    # Create BLOCK, QES, and ALT variables
+    # create BLOCK, QES, and ALT variables
     BQS <- ced[[1]][, 1:3]
     for (i in 2:nalternatives) {
         BQS <- rbind(BQS, ced[[i]][, 1:3])
@@ -89,11 +110,11 @@ function(choice.experiment.design,
 
     # ASC for unlabeled design
     if (unlabeled == TRUE) {
-      # With opt-out option
+      # with opt-out option
       if (optout == TRUE) {
         ASC <- rep(1, nalternatives * nquestions * nblocks)
       }
-      # Without opt-out option
+      # without opt-out option
       else {
         ASC <- c(rep(1, (nalternatives - 1) * nquestions * nblocks),
                  rep(0, nquestions * nblocks))
@@ -101,14 +122,14 @@ function(choice.experiment.design,
     }
     # ASC for labeled design
     else {
-      # With opt-out option
+      # with opt-out option
       if (optout == TRUE) {
         ASC <- kronecker(diag(1, nalternatives), rep(1, nquestions * nblocks))
         if (nalternatives >= 2) {
             colnames(ASC) <- paste("ASC", 1:nalternatives, sep = "")
         }
       }
-      # Without opt-out option
+      # without opt-out option
       else {
         ASC <- rbind(kronecker(diag(1, (nalternatives - 1)),
                                rep(1, nquestions * nblocks)), 
@@ -121,10 +142,10 @@ function(choice.experiment.design,
       }
     }
 
-    # Add BLOCK, QES, ALT, and ASC variables to design matrix
+    # add BLOCK, QES, ALT, and ASC variables to design matrix
     my.design <- data.frame(BQS, ASC, my.design) 
 
-    # Add rows corresponding to opt-out options to design matrix
+    # add rows corresponding to opt-out options to design matrix
     if (optout == TRUE) {
       optout.set <- as.data.frame(matrix(c(rep(c(1:nblocks), each = nquestions),
                                            rep(c(1:nquestions), nblocks),
@@ -136,29 +157,29 @@ function(choice.experiment.design,
       my.design <- rbind(my.design, optout.set)
     }
 
-    # Format output
+    # format output
     my.design <- my.design[order(my.design$BLOCK, my.design$QES, my.design$ALT), ]
   }
 
-  # Binary choice model
+  # binary choice model
   else {
-    # Common
+    # common
     if (is.null(common) == FALSE) {
       my.design <- conv.ced[[1]] - conv.ced[[2]]
       colnames(my.design) <- variable.names[1:nvariables]
     }
-    # Optout
+    # optout
     else if (optout == TRUE) {
       my.design <- conv.ced[[1]]
       colnames(my.design) <- variable.names[1:nvariables]
     }
     else {
-      # Forced & Unlabeled
+      # forced & Unlabeled
       if (unlabeled == TRUE) {
         my.design <- conv.ced[[1]] - conv.ced[[2]]
         colnames(my.design) <- variable.names[1:nvariables]
       }
-      # Forced & Labeled
+      # forced & Labeled
       else {
         my.design <- cbind(conv.ced[[1]], -1 * conv.ced[[2]])
         variable.names <- paste(variable.names, 
@@ -169,7 +190,7 @@ function(choice.experiment.design,
       }
     }
     
-    # Add BLOCK, QES, ALT, and ASC variables to design matrix
+    # add BLOCK, QES, ALT, and ASC variables to design matrix
     BQS <- ced[[1]][, 1:3]
     ASC <- rep(1, nquestions * nblocks)
     my.design <- data.frame(BQS, ASC, my.design)

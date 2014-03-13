@@ -1,16 +1,28 @@
-questionnaire <-
-function(choice.experiment.design,
-         common = NULL,
-         quote = TRUE)
+questionnaire <- function(choice.experiment.design, common = NULL, quote = TRUE)
 {
-# Assign design information
+# Name: questionnaire
+# Title: Converting a choice experiment design into a choice experiment questionnaire
+# Arguments:
+#  choice.experiment.design   A data frame containing a choice experiment design created
+#                               by the function Lma.design() or rotation.design().
+#  common                     A vector containing a fixed combination of attribute-levels
+#                               corresponding to a common base option in each question. 
+#                               If there is no common base option, the argument is set as NULL.          
+#  quote                      A logical variable indicating whether or not the attribute-levels
+#                               in each question are printed wth quotation marks.
+
+
+
+# set variables and vector
+
   nblocks <- choice.experiment.design$design.information$nblocks
   nquestions <- choice.experiment.design$design.information$nquestions
   nalternatives <- choice.experiment.design$design.information$nalternatives
   nattributes <- choice.experiment.design$design.information$nattributes
   attribute.names <- names(choice.experiment.design[[1]][[1]])[-(1:3)]
 
-# Integrate alternatives into data.frame
+# integrate alternatives into data.frame
+
   my.design <- as.matrix(choice.experiment.design[[1]][[1]])
 
   if (nalternatives >= 2) {
@@ -38,7 +50,8 @@ function(choice.experiment.design,
   my.design$QES <- as.numeric(as.character(my.design$QES))
   my.design$ALT <- as.numeric(as.character(my.design$ALT))
 
-# Convert the choice experiment design into questions
+# convert the choice experiment design into questions
+
   my.design <- my.design[order(my.design$BLOCK, my.design$QES, my.design$ALT),]
   alternative.names <- paste("alt.", 1:nalternatives, sep= "")
   cat("\n")

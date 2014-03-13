@@ -35,12 +35,16 @@ In version 0.3-0 and later versions, this function is also available for calcula
 This function returns an object of S3 class "gofm" that is a list with the following components.
   \item{RHO2}{The rho-squared value. Defined as \code{RHO2 = 1 - (LLb / LL0)}. }
   \item{AdjRHO2}{The rho-squared value adjusted by the number of estimated coefficients. Defined as \code{AdjRHO2 = 1 - ((LLb - K) / LL0)}.}
+  \item{AIC}{The Akaike Information Criterion (AIC).}
+  \item{BIC}{The Bayesian Information Criterion.}
   \item{K}{The number of estimated coefficients.}
   \item{LL0}{The log likelihood value at the start.}
   \item{LLb}{The log likelihood value at convergence.}
 }
 \references{
 Ben-Akiva, M. and Lerman, S. R. (1985) \emph{Discrete Choice Analysis: Theory and Application to Travel Demand}. The MIT Press.
+
+Cameron, A. C. and Trivedi, P. K. (2005) \emph{Microeconometrics: Methods and Applications}. Cambridge University Press.
 
 Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
