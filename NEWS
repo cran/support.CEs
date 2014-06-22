@@ -1,5 +1,8 @@
 Changes to package support.CEs
 
+2014-06-22, version 0.3-2
+- Changed maintainer's email address.
+
 2014-03-13, version 0.3-1
 - Modified the function gofm.
     It also returns AIC and BIC.

@@ -1,6 +1,6 @@
-38410efdd146525a5e7450c8ca9cae2f *DESCRIPTION
+256732db8695afa80b140b3331480754 *DESCRIPTION
 7a9d28402b8d2a1fedfdc2bfeae9f133 *NAMESPACE
-4f54bcc6e19c4a878ad28bd3e61d71e7 *NEWS
+57f39416a1b91f486caf9929049b5184 *NEWS
 49e58dd6bda97fb3093d4fd569c98e88 *R/Lma.design.R
 6f77d2a201cc08298e53bb794189bec7 *R/gofm.R
 4479db68e8004679b26d94a10cd1fbfc *R/make.dataset.R
@@ -28,5 +28,5 @@ af7f7d1f6dc3eced6036da8c64640dc4 *man/questionnaire.Rd
 3344a16d7c34c63a3ce62d137216c9bf *man/rice.Rd
 06bf515297bb3fada3234a0205c13472 *man/rotation.design.Rd
 b83d8ace38aa6c238373f17bc63823a8 *man/rural.Rd
-92eb45bc1371366e9fedac4b4408db82 *man/support.CEs-package.Rd
+53388ad94c985ebc9524587baaeeed49 *man/support.CEs-package.Rd
 a8124f9c5a8d001a46ef8005a23436f7 *man/syn.res.Rd

@@ -70,7 +70,7 @@ Although there are three alternatives in the example above, the case of two alte
 \author{
 Hideo Aizaki
 
-Maintainer: Hideo Aizaki <aizaki@affrc.go.jp>
+Maintainer: Hideo Aizaki <azk-r@ec.hokudai.ac.jp>
 }
 \references{
 Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
