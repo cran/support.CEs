@@ -1,5 +1,11 @@
 Changes to package support.CEs
 
+2015-08-27, version 0.4-1
+- Modified NAMESPACE.
+
+2015-08-26, version 0.4-0
+- Added the function sb.choice.
+
 2015-04-27, version 0.3-3
 - Changed maintainer's email address.
 
@@ -55,4 +61,3 @@ Changes to package support.CEs
 
 2011-07-14, version 0.2.0
 - First release to CRAN
-

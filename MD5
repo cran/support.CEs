@@ -1,6 +1,6 @@
-1a4c077f4866f128b50edc75000e0ce3 *DESCRIPTION
-7a9d28402b8d2a1fedfdc2bfeae9f133 *NAMESPACE
-9aeccf454b42dcd959f3036c96eba1e4 *NEWS
+882c124e4402f0cc0e4a58de214c8110 *DESCRIPTION
+ef233eaf05910070b67790f2c032706a *NAMESPACE
+37de8ccfcce60ead1616f3ce55abc2bf *NEWS
 49e58dd6bda97fb3093d4fd569c98e88 *R/Lma.design.R
 6f77d2a201cc08298e53bb794189bec7 *R/gofm.R
 4479db68e8004679b26d94a10cd1fbfc *R/make.dataset.R
@@ -9,8 +9,15 @@
 d41eadf7e49ef9682b520f76f82bcad8 *R/print.cedes.R
 a05b66c3c4d84cf25e544e62a542991b *R/print.gofm.R
 1c95a4b0a8ece4aec3b571718bb328df *R/print.mwtp.R
+b85f5515922a2eb12911aa0065fc1f12 *R/print.sb.R
+e1602d5221156f85a781c8ac05022bf5 *R/print.summary.sb.R
 65cc736d3b877166b95135dcb310557d *R/questionnaire.R
 ca70921c33a474d3ad57c5c7b5a3a03d *R/rotation.design.R
+2daf7ef9a83500585dfefa75280f1c31 *R/sb.check.args.R
+3ba611d1e9860bdfc2bdc596bbdd8505 *R/sb.design.R
+f03e6e366d1900528521940742f67fe4 *R/sb.extract.R
+40c463827a5bbdf18aa680b4b0ef9b3b *R/sb.submit.R
+c49cbeef5656cf0488acc32d7db8b432 *R/summary.sb.R
 4a01d3811f61697aa86bfffab84b4b3c *data/pork.rda
 20654106203fb8a8693122be9992ff92 *data/rice.rda
 916400caa3d35325cf660f13d46ead33 *data/rural.rda
@@ -28,5 +35,6 @@ af7f7d1f6dc3eced6036da8c64640dc4 *man/questionnaire.Rd
 3344a16d7c34c63a3ce62d137216c9bf *man/rice.Rd
 06bf515297bb3fada3234a0205c13472 *man/rotation.design.Rd
 b83d8ace38aa6c238373f17bc63823a8 *man/rural.Rd
+53fd69aa8d3a7e70dfda0078ffb5f0c0 *man/sb.design.Rd
 0db5fcb4b59181410a46c83fa2449209 *man/support.CEs-package.Rd
 a8124f9c5a8d001a46ef8005a23436f7 *man/syn.res.Rd

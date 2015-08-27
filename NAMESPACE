@@ -5,16 +5,33 @@ export(
 "make.design.matrix",
 "mwtp",
 "questionnaire",
-"rotation.design"
+"rotation.design",
+"sb.design"
 )
 
 import(
 DoE.base,
 MASS,
-simex
+simex,
+RCurl,
+XML
 )
+
+importFrom("stats",
+"coefficients",
+"logLik",
+"model.matrix",
+"qnorm",
+"quantile",
+"runif",
+"vcov")
+
+importFrom("utils",
+"type.convert")
 
 S3method(print, cedes)
 S3method(print, gofm)
 S3method(print, mwtp)
-
+S3method(print, sb)
+S3method(summary, sb)
+S3method(print, summary.sb)
