@@ -30,6 +30,8 @@ Hideo Aizaki
 \examples{
 library(stats)
 
+if(getRversion() >= "3.6.0") RNGkind(sample.kind = "Rounding")
+
 d.rural <- Lma.design(
   attribute.names = list(
     Area = c("20", "40", "60", "80"),

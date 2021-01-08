@@ -35,6 +35,8 @@ Hideo Aizaki
 \examples{
 library(survival)
 
+if(getRversion() >= "3.6.0") RNGkind(sample.kind = "Rounding")
+
 d.rice <- rotation.design(
   attribute.names = list(
     Region = c("RegA", "RegB", "RegC"),

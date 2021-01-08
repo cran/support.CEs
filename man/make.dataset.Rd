@@ -43,11 +43,6 @@ In addition to some variables contained in the respondent and design matrix data
   \item{STR}{A variable assigned to the argument \code{strata} in the function \code{clogit} in order to identify each combination of respondent and question.}
   \item{RES}{A logical variable taking on \code{TRUE} when the alternative is selected and \code{FALSE} when it is not. }
 }
-\references{
-Aizaki, H. and Nishimura, K. (2008) Design and Analysis of Choice Experiments Using R: A Brief Introduction. \emph{Agricultural Information Research}, \bold{17}(2), 86--94. \url{http://dx.doi.org/10.3173/air.17.86}
-
-Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
-}
 \author{
 Hideo Aizaki
 }
@@ -57,6 +52,8 @@ Hideo Aizaki
 \examples{
 library(survival)
 library(stats)
+
+if(getRversion() >= "3.6.0") RNGkind(sample.kind = "Rounding")
 
 # Case 1
 # Choice experiments using the function rotaion.design.

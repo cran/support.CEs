@@ -75,15 +75,6 @@ This function returns an object of S3 class "mwtp" that is a list with the follo
   \item{repb}{A matrix containing N sets of replicated coefficients. It is included when the Krinsky and Robb's method is used.} 
 The object \code{mwtps} can be used for a function \code{mded} in the package \pkg{mded} that calculates differences between two independent/dependent empirical distributions of the MWTPs.
 }
-\references{
-Louviere, J. J., Hensher, D. A. and Swait, J. D. (2000) \emph{Stated Choice Methods: Analysis and Application}. Cambridge University Press.
-
-Krinsky, I. and Robb. A. L. (1986) On Approximating the Statistical Properties of Elasticities. \emph{The Review of Economics and Statistics}, \bold{68}, 715--719.
-
-Hole, A. R. (2007) A Comparison of Approaches to Estimating COnfidence Intervals for Willingness to Pay Measures. \emph{Health Economics}, \bold{16}, 827--840.
-
-Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
-}
 \author{
 Hideo Aizaki
 }

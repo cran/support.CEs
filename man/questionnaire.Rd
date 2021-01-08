@@ -31,9 +31,6 @@ Choice experiment questions converted from the choice experiment design are retu
 \author{
 Hideo Aizaki
 }
-\references{
-Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
-}
 \seealso{
  \code{\link{Lma.design}}, \code{\link{rotation.design}}
 }

@@ -63,11 +63,6 @@ This function returns an object of S3 class "cedes" (see \code{Lma.design}) that
   \item{design.information }{Information related to the choice experiment design created by this function, which is used as arguments in post-processing functions, such as the functions \code{questionnaire} and \code{make.design.matrix}. This list includes objects such as the number of blocks into which the choice experiment design is divided (\code{nblocks}), the number of questions per block (\code{nquestions}), the number of alternatives per choice set excluding an opt-out or common base option (\code{nalternatives}), and the number of attributes per alternative (\code{nattributes}).}
 An error message is displayed when the argument \code{nblocks} does not match a choice experiment design. In such a case, the argument \code{nblocks} is set to be a divisior of the number of rows of the choice experiment design. Ohter messages are frequently shown immediately after executing this function when it works properly. These messages are taken from the function \code{oa.design} and may be valuable to a user who wishes to define the original array and assign it the argument \code{candidate.array}.
 }
-\references{
-Johnson, F. R., Kanninen, B., Bingham, M. and \"{O}zdemir, S. (2007) Experimental Design for Stated Choice Studies. In B. J. Kanninen (ed), \emph{Valuing Environmental Amenities Using Stated Choice Studies: A Common Sense Approach to Theory and Practice}. pp.159--202. Springer.
-
-Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
-}
 \author{
 Hideo Aizaki
 }

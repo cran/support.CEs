@@ -27,7 +27,7 @@ Arguments passed to the function \code{format}.
 }
 }
 \details{
-This function provides rho-squared (also called McFadden's R-squared or pseudo R-squared), rho-squared adjusted by the number of estimated coefficients, the number of estimated coefficients, and log likelihood values at the start and at convergence.
+This function provides rho-squared (also called McFadden's R-squared or pseudo R-squared), rho-squared adjusted by the number of estimated coefficients, the number of estimated coefficients, and log likelihood values at the start and at convergence (see, e.g., Ben-Akiva and Lerman 1985; Cameron and Trivedi 2005).
 
 In version 0.3-0 and later versions, this function is also available for calculating goodness-of-fit measures for binary choice models estimated by using the function \code{glm} in the package \pkg{stats}.
 }
@@ -40,13 +40,6 @@ This function returns an object of S3 class "gofm" that is a list with the follo
   \item{K}{The number of estimated coefficients.}
   \item{LL0}{The log likelihood value at the start.}
   \item{LLb}{The log likelihood value at convergence.}
-}
-\references{
-Ben-Akiva, M. and Lerman, S. R. (1985) \emph{Discrete Choice Analysis: Theory and Application to Travel Demand}. The MIT Press.
-
-Cameron, A. C. and Trivedi, P. K. (2005) \emph{Microeconometrics: Methods and Applications}. Cambridge University Press.
-
-Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
 \author{
 Hideo Aizaki

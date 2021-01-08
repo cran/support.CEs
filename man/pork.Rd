@@ -29,6 +29,8 @@ Hideo Aizaki
 \examples{
 library(survival)
 
+if(getRversion() >= "3.6.0") RNGkind(sample.kind = "Rounding")
+
 d.pork <- Lma.design(
   attribute.names = list(
     Price = c("100", "130", "160", "190")),

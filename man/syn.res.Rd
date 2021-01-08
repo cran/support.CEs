@@ -32,7 +32,7 @@ data(syn.res3)
   }
 }
 \details{
-The "Examples" for each function in this package is based on three hypothetical cases in which choice experiments are applied to measure consumers' valuation of an agricultural product. 
+The "Examples" for each function in this package is based on three hypothetical cases in which choice experiments are applied to measure consumers' valuation of an agricultural product (Aizaki 2012). 
 
 The agricultural product has three attributes: (1) the region of origin: this attribute has three levels---"Region A," "Region B," and "Region C."; (2) the eco-friendly label: this describe the three types of cultivation method---"Conv. (conventional cultivation method)," "More (more eco-friendly cultivation method)," and "Most (most eco-friendly cultivation method); and (3) the price per piece of the product---"$1," "$1.1," "$1.2." 
 
@@ -111,9 +111,6 @@ A total of 9 binary choice experiment questions are created by the function \cod
 }
 \author{
 Hideo Aizaki
-}
-\references{
-Aizaki, H. (2012) Basic Functions for Supporting an Implementation of Choice Experiments in R. \emph{Journal of Statistical Software, Code Snippets}, \bold{50}(2), 1--24. \url{http://www.jstatsoft.org/v50/c02/}
 }
 \seealso{
  \code{\link{make.dataset}}, \code{\link{rotation.design}}, \code{\link{Lma.design}}

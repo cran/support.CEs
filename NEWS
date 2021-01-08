@@ -1,10 +1,15 @@
 Changes to package support.CEs
 
+2021-01-07, version 0.5-0
+- Fixed the function mwtp.
+- Removed the function sb.design.
+- Modified help files.
+
 2015-08-27, version 0.4-1
 - Modified NAMESPACE.
 
 2015-08-26, version 0.4-0
-- Added the function sb.choice.
+- Added the function sb.design.
 
 2015-04-27, version 0.3-3
 - Changed maintainer's email address.

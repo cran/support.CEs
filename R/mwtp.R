@@ -96,6 +96,14 @@ mwtp <- function(output, monetary.variables, nonmonetary.variables = NULL, nrepl
             repmwtps <- -repb[, nonmonetary.index] / repb[, monetary.index]
         }
 
+
+        ### Added 2021/01/07
+        if (is.vector(repmwtps)) {
+          repmwtps <- t(t(repmwtps))
+        }
+        ###
+
+
         # calculate confidence intervals
         confidence.intervals <- apply(repmwtps, 2, quantile, 
                                       probs = c(lower.limit, upper.limit))
