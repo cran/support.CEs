@@ -1,8 +1,9 @@
 citHeader("To cite support.CEs in publications use:")
 
-citEntry(entry = "Article",
+bibentry(
+  bibtype      = "Article",
   title        = "Basic Functions for Supporting an Implementation of Choice Experiments in {R}",
-  author       = personList(as.person("Hideo Aizaki")),
+  author       = c(person("Hideo", "Aizaki")),
   journal      = "Journal of Statistical Software",
   year         = "2012",
   volume       = "50",

@@ -5,7 +5,8 @@ export(
 "make.design.matrix",
 "mwtp",
 "questionnaire",
-"rotation.design")
+"rotation.design",
+"ce.response")
 
 import(
 DoE.base,
@@ -19,7 +20,8 @@ importFrom("stats",
 "qnorm",
 "quantile",
 "runif",
-"vcov")
+"vcov",
+"reshape")
 
 importFrom("utils",
 "type.convert")

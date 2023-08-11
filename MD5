@@ -1,7 +1,8 @@
-e239ef25205bd2f53eff50af51298494 *DESCRIPTION
-dac1d6e25b69f9d45386acdf69ad6bd6 *NAMESPACE
-5c2c3bf895fd2fb8194d9afafa4f8123 *NEWS
+9fc2f7e5c4b7892447ee0225f1479398 *DESCRIPTION
+1c1f19eb63ba91c8342ef987a0696b8f *NAMESPACE
+66a846d875ab08bcaceb36ad311f5e80 *NEWS
 49e58dd6bda97fb3093d4fd569c98e88 *R/Lma.design.R
+5ee0ea5a25a4e34444ca4d6d5c0386d3 *R/ce.response.R
 6f77d2a201cc08298e53bb794189bec7 *R/gofm.R
 4479db68e8004679b26d94a10cd1fbfc *R/make.dataset.R
 95d10233debc72c40ff0e77b12f4df52 *R/make.design.matrix.R
@@ -17,8 +18,9 @@ ca70921c33a474d3ad57c5c7b5a3a03d *R/rotation.design.R
 39da64048be1595c7fbb7296743cfd8b *data/syn.res1.rda
 a9d72311d3c33fef686846d16f546328 *data/syn.res2.rda
 3a760ec8c2f54520499eda7ac8df83e5 *data/syn.res3.rda
-66128e2a5f6e686dfe6c1b8cfcd4376d *inst/CITATION
+16446a19e07246f2cb1c66eacc1477d2 *inst/CITATION
 c1157afb2a1bb57a509cb26981cb9d3c *man/Lma.design.Rd
+3b81f7c206012f908ebf66831d593fac *man/ce.response.Rd
 2aacc4385080075ad276f8313ecd6197 *man/gofm.Rd
 959a55fa1feb1eda6dc31c7f5c2a284a *man/make.dataset.Rd
 72b1085ee4f4a29bee871d6315e42d0d *man/make.design.matrix.Rd
