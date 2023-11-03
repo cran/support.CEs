@@ -83,7 +83,7 @@ Cameron, A. C. and Trivedi, P. K. (2005) \emph{Microeconometrics: Methods and Ap
 
 Hole, A. R. (2007) A Comparison of Approaches to Estimating Confidence Intervals for Willingness to Pay Measures. \emph{Health Economics}, \bold{16}, 827--840.
 
-Johnson, F. R., Kanninen, B., Bingham, M. and \"{O}zdemir, S. (2007) Experimental Design for Stated Choice Studies. In B. J. Kanninen (ed), \emph{Valuing Environmental Amenities Using Stated Choice Studies: A Common Sense Approach to Theory and Practice}. pp.159--202. Springer. 
+Johnson, F. R., Kanninen, B., Bingham, M. and Ozdemir, S. (2007) Experimental Design for Stated Choice Studies. In B. J. Kanninen (ed), \emph{Valuing Environmental Amenities Using Stated Choice Studies: A Common Sense Approach to Theory and Practice}. pp.159--202. Springer. 
 
 Krinsky, I. and Robb. A. L. (1986) On Approximating the Statistical Properties of Elasticities. \emph{The Review of Economics and Statistics}, \bold{68}, 715--719.
 

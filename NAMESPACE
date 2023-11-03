@@ -6,7 +6,8 @@ export(
 "mwtp",
 "questionnaire",
 "rotation.design",
-"ce.response")
+"ce.response",
+"ce.dataset")
 
 import(
 DoE.base,

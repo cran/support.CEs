@@ -1,7 +1,8 @@
-9fc2f7e5c4b7892447ee0225f1479398 *DESCRIPTION
-1c1f19eb63ba91c8342ef987a0696b8f *NAMESPACE
-66a846d875ab08bcaceb36ad311f5e80 *NEWS
+71c86c5fa0e8e7c6e5392fc67ec4f987 *DESCRIPTION
+3cc4cdc99bef3390f0032adf04ec9812 *NAMESPACE
+3ef4cd809f781e4c5a33a4a0cd1e4455 *NEWS
 49e58dd6bda97fb3093d4fd569c98e88 *R/Lma.design.R
+4e17072a130a6ed2f3235bc4e825f01b *R/ce.dataset.R
 5ee0ea5a25a4e34444ca4d6d5c0386d3 *R/ce.response.R
 6f77d2a201cc08298e53bb794189bec7 *R/gofm.R
 4479db68e8004679b26d94a10cd1fbfc *R/make.dataset.R
@@ -20,6 +21,7 @@ a9d72311d3c33fef686846d16f546328 *data/syn.res2.rda
 3a760ec8c2f54520499eda7ac8df83e5 *data/syn.res3.rda
 16446a19e07246f2cb1c66eacc1477d2 *inst/CITATION
 c1157afb2a1bb57a509cb26981cb9d3c *man/Lma.design.Rd
+8ce5dcfc308873865d124fab79eaed94 *man/ce.dataset.Rd
 3b81f7c206012f908ebf66831d593fac *man/ce.response.Rd
 2aacc4385080075ad276f8313ecd6197 *man/gofm.Rd
 959a55fa1feb1eda6dc31c7f5c2a284a *man/make.dataset.Rd
@@ -30,5 +32,5 @@ c1157afb2a1bb57a509cb26981cb9d3c *man/Lma.design.Rd
 e62ff561341e09a88d729aa23d0b6d15 *man/rice.Rd
 68af13b804fd3a34657714edd22d9609 *man/rotation.design.Rd
 a93aad9854d4e59b479734ed2433ab8f *man/rural.Rd
-9ea1f44854df526ef4fd90877f3c56eb *man/support.CEs-package.Rd
+690fe0504447ef86ca0d6d5d94bc0dfa *man/support.CEs-package.Rd
 cddef0dec736b1a3444acc64bfa03a0a *man/syn.res.Rd
